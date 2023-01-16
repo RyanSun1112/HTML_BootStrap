@@ -8,62 +8,93 @@
 </head>
 <body>
     <style>
-        .col:hover{
-            background-color: lightgray;
+        .vertical-center {
+          min-height: 10%;
+          min-height: 10vh;
+          display: flex;
+          align-items: center;
+          margin-left: 350px;
         }
-        .col{
-          margin: 1px
-        }
-        .container {
-            margin-right: auto;
-            margin-left: auto;
-        }
-        .row {
-          border-style:outset;
-          margin: 10px;
+        .grid {
+
+          display: grid;
+            /* grid-template-columns: 700px; */
+          margin: 400px;
+         
         }
 
-    </style>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        .col-3:hover{
+            background-color: lightgray;
+        }
+        .col-3{
+          margin: 3px;
+          padding-left : 150px;
+          padding-right : 250px;
+          font-size: 1000%; 
+          text-align: center;
+        }
+       
+        .row {
+          
+          margin: 10px;
+        }
+        
+        </style>
+  <link src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
   <h1 style = "text-align: center; margin: 10px;"> Tic Tac Toe </h1>
-  <div class='container'>
-    <div class='row'>
-        <div class='col border border-dark' id = 'col1' onclick = 'myFunction1()'>
-                   1     
+  <div>
+    <p id = 'p1' style = "margin-left: 900px;">Player 1 = O</p> 
+    <p id = 'p2'style = "margin-left: 900px;">Player 2 = X</p>
+    <button type=" button" onclick = 'reset()' style = " margin-left: 920px;"> Reset </button>
+  </div>
+  <div class = "vertical-center">
+
+    <div class="d-grid">
+      <div class='row'>
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col1' onclick = 'myFunction1()'>
+          1     
         </div>
-        <div class='col border border-dark' id = 'col2' onclick = 'myFunction2()'>2</div>
-            
-        <div class='col border border-dark' id = 'col3' onclick = 'myFunction3()'>3</div>
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col2' onclick = 'myFunction2()'>2 </div>
+        
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col3' onclick = 'myFunction3()'>3</div>
+      </div>
+      <div class='row mt-0'>
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col4' onclick = 'myFunction4()' >
+          4
+        </div>
+        <div class='col-3 text-center border-3 rounded  border border-dark' id = 'col5' onclick = 'myFunction5()'>5</div>
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col6' onclick = 'myFunction6()'>6</div>
+      </div>
+      <div class='row mt-0'>
+        <div class='col-3 text-center border-3 rounded  border border-dark' id = 'col7' onclick = 'myFunction7()'>7</div>
+        <div class='col-3 text-center border-3 rounded  border border-dark' id = 'col8' onclick = 'myFunction8()'>8</div>
+        <div class='col-3 text-center border-3 rounded border border-dark' id = 'col9' onclick = 'myFunction9()'>9</div>
+      </div>
     </div>
-    <div class='row'>
-        <div class='col border border-dark' id = 'col4' onclick = 'myFunction4()'>4</div>
-        <div class='col  border border-dark' id = 'col5' onclick = 'myFunction5()'>5</div>
-        <div class='col border border-dark' id = 'col6' onclick = 'myFunction6()'>6</div>
-    </div>
-    <div class='row'>
-        <div class='col  border border-dark' id = 'col7' onclick = 'myFunction7()'>7</div>
-        <div class='col  border border-dark' id = 'col8' onclick = 'myFunction8()'>8</div>
-        <div class='col border border-dark' id = 'col9' onclick = 'myFunction9()'>9</div>
-    </div>
-</div>
-<button type=" button" onclick = 'reset()' style = " margin-left: 615px;"> Reset</button>
-<script>
-  counter = false
-  function check(){
-    const button_1 = document.getElementById('col1')
-    const button_2 = document.getElementById('col2')
-    const button_3 = document.getElementById('col3')
-    const button_4 = document.getElementById('col4')
-    const button_5 = document.getElementById('col5')
-    const button_6 = document.getElementById('col6')
-    const button_7 = document.getElementById('col7')
-    const button_8 = document.getElementById('col8')
-    const button_9 = document.getElementById('col9')
+  </div>
+    <script>
+      counter = true
+      number = 1
+      function check(){
+        const button_1 = document.getElementById('col1')
+        const button_2 = document.getElementById('col2')
+        const button_3 = document.getElementById('col3')
+        const button_4 = document.getElementById('col4')
+        const button_5 = document.getElementById('col5')
+        const button_6 = document.getElementById('col6')
+        const button_7 = document.getElementById('col7')
+        const button_8 = document.getElementById('col8')
+        const button_9 = document.getElementById('col9')
     if(button_1.textContent == "X" && button_2.textContent == "X" && button_3.textContent == "X" ||button_4.textContent == "X" && button_5.textContent == "X" && button_6.textContent == "X"||button_7.textContent == "X" && button_8.textContent == "X" && button_9.textContent == "X" ||button_1.textContent == "X" && button_4.textContent == "X" && button_7.textContent == "X"||button_2.textContent == "X" && button_5.textContent == "X" && button_8.textContent == "X"||button_3.textContent == "X" && button_6.textContent == "X" && button_9.textContent == "X"||button_1.textContent == "X" && button_5.textContent == "X" && button_9.textContent == "X"||button_3.textContent == "X" && button_5.textContent == "X" && button_7.textContent == "X" ){
       alert('X wins')
       reset()
     }
-
+    if(number == 9){
+      alert('TIE')  
+      reset()
+    }
+    number++
+    
   }
   function check1(){
     const button_1 = document.getElementById('col1')
@@ -80,7 +111,12 @@
       alert('O wins')
       reset()
     }
-
+    if(number == 9){
+      alert('TIE')  
+      reset()
+    }
+    number++
+    
   }
 function reset(){
   const button_1 = document.getElementById('col1')
@@ -92,6 +128,8 @@ function reset(){
   const button_7 = document.getElementById('col7')
   const button_8 = document.getElementById('col8')
   const button_9 = document.getElementById('col9')
+  const paragraph = document.getElementById('p1')
+  const paragraph2 = document.getElementById('p2')
   button_1.textContent = "1"
   button_2.textContent = "2"
   button_3.textContent = "3"
@@ -101,7 +139,18 @@ function reset(){
   button_7.textContent = "7"
   button_8.textContent = "8"
   button_9.textContent = "9"
- 
+  if(paragraph.textContent =="Player 1 = O"){
+    paragraph.textContent ="Player 1 = X"
+    paragraph2.textContent ="Player 2 = O"
+    counter = false
+  }
+  else {
+    paragraph.textContent ="Player 1 = O"
+    paragraph2.textContent ="Player 2 = X"
+    counter = true
+  }
+  number = 0
+
 }
  function myFunction1() {
     //console.log("you clicked me");
